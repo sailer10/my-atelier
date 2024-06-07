@@ -1,0 +1,27 @@
+<html layout:decorate="~{auction/auction_layout}">
+<div layout:fragment="content" class="container-fluid">
+	<div class="container">
+		<div class="mb-3">
+			<div>
+				<img class="img-fluid" src="/image/dog1.jpg" />
+				<div>
+					<div class="atelier-name">
+						<em>{$atelier_name}</em>
+					</div>
+					<div class="product-name fs-5">
+						{$product_name}
+					</div>
+					<div class="product-price-group">
+						<del>{$price}</del>
+						<span class="product-price fw-bold">{$dicounted_price}</span>
+					</div>
+					<div class="product-badges">
+						<span class="badge bg-info">기간할인</span>
+						<span class="badge bg-secondary">단일수량</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</html>

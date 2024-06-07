@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: my-atelier
+  output:
+    ansi:
+      enabled: always # console colorize
+  jpa:
+    #    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    # ?? ?? ??
+    properties:
+      hibernate:
+        format_sql: true
+        show-sql: true
+    defer-datasource-initialization: true # ??? ?? ?? data.sql ??
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb   #jdbc:h2:~./testdb  # localhost:8084/h2-console ???? JDBC URL
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true # H2 console 활성화
+      path: /h2-console #h2-console path
+
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+  thymeleaf:
+    cache: false # 정적요소 실시간 반영 위한 캐시 제거
+server:
+  port: 9094
