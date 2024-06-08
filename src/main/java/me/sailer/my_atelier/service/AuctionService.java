@@ -3,12 +3,11 @@ package me.sailer.my_atelier.service;
 import lombok.RequiredArgsConstructor;
 import me.sailer.my_atelier.domain.Category;
 import me.sailer.my_atelier.domain.Product;
-import me.sailer.my_atelier.dto.AddProductRequest;
+import me.sailer.my_atelier.domain.dto.AddProductRequest;
 import me.sailer.my_atelier.repository.CategoryRepository;
 import me.sailer.my_atelier.repository.ProductRepository;
 import me.sailer.my_atelier.repository.SiteUserRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Service
 @RequiredArgsConstructor

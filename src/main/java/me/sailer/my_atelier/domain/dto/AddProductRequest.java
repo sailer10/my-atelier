@@ -1,4 +1,4 @@
-package me.sailer.my_atelier.dto;
+package me.sailer.my_atelier.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

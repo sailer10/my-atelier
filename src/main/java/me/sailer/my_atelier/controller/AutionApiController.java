@@ -1,9 +1,8 @@
 package me.sailer.my_atelier.controller;
 
 import lombok.RequiredArgsConstructor;
-import me.sailer.my_atelier.domain.Category;
 import me.sailer.my_atelier.domain.Product;
-import me.sailer.my_atelier.dto.AddProductRequest;
+import me.sailer.my_atelier.domain.dto.AddProductRequest;
 import me.sailer.my_atelier.service.AuctionService;
 import me.sailer.my_atelier.statics.Statics;
 import org.springframework.http.HttpStatus;
