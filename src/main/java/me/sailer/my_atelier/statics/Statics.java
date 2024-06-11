@@ -7,5 +7,5 @@ public class Statics {
     public final static String AUCTION = "/auction";
     public final static String PRODUCTS = "/products";
     public final static String PRODUCT_DETAIL = "/product_detail";
-    public final static String API_PRODUCT = "/api/products";
+    public final static String API_PRODUCTS = "/api/products";
 }

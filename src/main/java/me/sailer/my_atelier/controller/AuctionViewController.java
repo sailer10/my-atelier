@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequiredArgsConstructor
 public class AuctionViewController {
 
-    private AuctionService auctionService;
+    private final AuctionService auctionService;
 
     @GetMapping(Statics.PRODUCTS)
     public String getProducts(Model model) {

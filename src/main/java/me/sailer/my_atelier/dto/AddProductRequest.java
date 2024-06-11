@@ -1,20 +1,18 @@
-package me.sailer.my_atelier.domain.dto;
+package me.sailer.my_atelier.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import me.sailer.my_atelier.domain.Category;
 import me.sailer.my_atelier.domain.Product;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@ToString
 public class AddProductRequest {
     private String name;
     private int price;
     private int remaining;
-    private int catagoryId;
+    private long categoryId;
 
     public Product toEntity(Category category) {
         return Product.builder()
