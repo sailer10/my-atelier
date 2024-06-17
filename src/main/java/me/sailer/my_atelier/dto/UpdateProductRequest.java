@@ -20,6 +20,6 @@ public class UpdateProductRequest {
     private int remaining;
     private boolean isDiscounted;
     private int discountedPrice;
-    private long categoryId;
+    private byte categoryId;
 
 }

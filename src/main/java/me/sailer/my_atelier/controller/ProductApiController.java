@@ -23,12 +23,11 @@ public class ProductApiController {
         return ResponseEntity.status(HttpStatus.CREATED).body(savedProduct);
     }
 
-    @GetMapping(Statics.API_PRODUCTS + "/{id}")
-    public ResponseEntity<Product> findProduct(@PathVariable long id) {
-        Product product = productService.findById(id);
 
-        return ResponseEntity.ok().body(product);
-    }
+//    @GetMapping(Statics.API_PRODUCTS + Statics.SELLERS + "/{id}")
+
+
+
 
     @PatchMapping(Statics.API_PRODUCTS + "/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable long id, @RequestBody UpdateProductRequest request) {
@@ -36,6 +35,11 @@ public class ProductApiController {
 
         return ResponseEntity.ok().body(updatedProduct);
 
+    }
+
+    @DeleteMapping(Statics.API_PRODUCTS + "/{id}")
+    public void deleteProduct(@PathVariable long id) {
+        productService.deleteById(id);
     }
 
 }

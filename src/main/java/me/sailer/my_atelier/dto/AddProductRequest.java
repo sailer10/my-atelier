@@ -12,13 +12,15 @@ public class AddProductRequest {
     private String name;
     private int price;
     private int remaining;
-    private long categoryId;
+    private byte categoryId;
+    private long sellerId;
 
     public Product toEntity(Category category) {
         return Product.builder()
                 .name(name)
                 .price(price)
                 .remaining(remaining)
+                .discountedPrice(price)
                 .category(category)
                 .build();
     }

@@ -18,23 +18,25 @@ public class ProductService {
     private final CategoryRepository categoryRepository;
 
     public Product save(AddProductRequest request) {
-        long id = request.getCategoryId();
-        Category category = categoryRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("wrong category id: " + id));
+        byte categoryId = request.getCategoryId();
+        long sellerId = request.getSellerId();
+        Category category = categoryRepository.findById(categoryId)
+                .orElseThrow(() -> new IllegalArgumentException("wrong category id: " + categoryId));
+
 
         return productRepository.save(request.toEntity(category));
     }
 
     public Product update(long id, UpdateProductRequest request) {
         Product product = productRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Wrong product id"));
-        long category_id = request.getCategoryId() != 0 ? request.getCategoryId() : product.getCategory().getId();
+        byte category_id = request.getCategoryId() != 0 ? request.getCategoryId() : product.getCategory().getCategoryNo();
         Category category = categoryRepository.findById(category_id).orElseThrow(() -> new IllegalArgumentException("Wrong category id"));
 
         product.update(
                 request.getName() != null ? request.getName() : product.getName(),
                 request.getPrice() != 0 ? request.getPrice() : product.getPrice(),
                 request.getRemaining() != 0 ? request.getRemaining() : product.getRemaining(),
-                request.isDiscounted() == false ? request.isDiscounted() : product.isDiscounted(),
+                request.isDiscounted(),
                 request.getDiscountedPrice() != 0 ? request.getDiscountedPrice() : product.getDiscountedPrice(),
                 request.getCategoryId() != 0 ? category : product.getCategory());
 
@@ -44,5 +46,9 @@ public class ProductService {
     public Product findById(long id) {
         return productRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
+    }
+
+    public void deleteById(long id) {
+        productRepository.deleteById(id);
     }
 }

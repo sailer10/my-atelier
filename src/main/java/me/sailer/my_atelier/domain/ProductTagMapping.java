@@ -21,13 +21,13 @@ public class ProductTagMapping {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long tagMappingNo;
 
     @ManyToOne
-    @JoinColumn(name="product_id", updatable = false)
+    @JoinColumn(name="product_no", updatable = false)
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name="product_tag_id", updatable = false)
+    @JoinColumn(name="product_tag_no", updatable = false)
     private ProductTag productTag;
 }

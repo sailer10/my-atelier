@@ -15,13 +15,7 @@ public class ProductTag {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false)
-    private Long id;
-
+    @Column(updatable = false)
+    private Short tagNo;
     private String name;
-
-    //(mappedBy = "productTag", cascade = CascadeType.ALL, orphanRemoval = true)
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "productTag")
-    private Set<ProductTagMapping> productTagMappings = new HashSet<>();
-
 }
