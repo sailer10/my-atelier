@@ -1,11 +1,11 @@
 -- 기본 카테고리 추가
-insert into CATEGORY (id, category_name) values (1, '가죽공예');
-insert into CATEGORY (id, category_name) values (2, '목공');
-insert into CATEGORY (id, category_name) values (3, '베이킹');
-insert into CATEGORY (id, category_name) values (4, '도자기');
-insert into CATEGORY (id, category_name) values (5, '향초');
-insert into CATEGORY (id, category_name) values (6, '향수');
-insert into CATEGORY (id, category_name) values (7, '기타');
+insert into CATEGORY (category_no, name) values (1, '가죽공예');
+insert into CATEGORY (category_no, name) values (2, '목공');
+insert into CATEGORY (category_no, name) values (3, '베이킹');
+insert into CATEGORY (category_no, name) values (4, '도자기');
+insert into CATEGORY (category_no, name) values (5, '향초');
+insert into CATEGORY (category_no, name) values (6, '향수');
+insert into CATEGORY (category_no, name) values (7, '기타');
 
 -- 테스트용 계정 생성
 

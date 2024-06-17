@@ -5,25 +5,33 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import me.sailer.my_atelier.base.BaseCreatedTime;
 
+/**
+ * 문의글 엔티티
+ */
 @Entity
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AtelierManager {
+public class Inquiry extends BaseCreatedTime {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long managerNo;
+    private Long inquiryNo;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "member_no", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private Member member;
 
     @ManyToOne
-    @JoinColumn(name = "atelier_no", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
-    private Atelier atelier;
+    @JoinColumn(name = "product_no", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
+    private Product product;
 
-    private byte role;  //master, manager
+    private String title;
+
+    private String content;
+
+
 }

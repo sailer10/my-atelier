@@ -9,10 +9,11 @@ import java.util.Set;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor//todo: 이 어노테이션 지우기
+@AllArgsConstructor
+@Builder
 public class Category {
 
     @Id
-    private byte categoryNo;
+    private Byte categoryNo;
     private String name;
 }

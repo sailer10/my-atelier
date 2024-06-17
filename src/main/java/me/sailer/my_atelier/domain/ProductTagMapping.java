@@ -1,10 +1,7 @@
 package me.sailer.my_atelier.domain;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 
 /**
@@ -17,6 +14,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@Builder
 public class ProductTagMapping {
 
     @Id
@@ -24,10 +22,10 @@ public class ProductTagMapping {
     private Long tagMappingNo;
 
     @ManyToOne
-    @JoinColumn(name="product_no", updatable = false)
+    @JoinColumn(name="product_no", updatable = false, foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name="product_tag_no", updatable = false)
+    @JoinColumn(name="product_tag_no", updatable = false, foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private ProductTag productTag;
 }

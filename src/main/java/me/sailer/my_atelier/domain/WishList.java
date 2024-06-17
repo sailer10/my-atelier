@@ -11,19 +11,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AtelierManager {
+public class WishList {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long managerNo;
-
-    @OneToOne
-    @JoinColumn(name = "member_no", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
-    private Member member;
+    private Long wishListNo;
 
     @ManyToOne
-    @JoinColumn(name = "atelier_no", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
-    private Atelier atelier;
+    @JoinColumn(name = "member_no", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
+    private Member memberNo;
 
-    private byte role;  //master, manager
+    @ManyToOne
+    @JoinColumn(name = "product_no", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
+    private Product productNo;
 }

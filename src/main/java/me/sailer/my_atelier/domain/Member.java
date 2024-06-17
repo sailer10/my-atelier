@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import me.sailer.my_atelier.base.BaseCreatedTime;
 
 import java.time.LocalDateTime;
 
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @SuperBuilder
-public class Member extends BaseCreatedTime{
+public class Member extends BaseCreatedTime {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,19 +39,19 @@ public class Member extends BaseCreatedTime{
 
     private short role;
 
-    @Builder
-    public Member(String id, String name, String email, String phone,
-                  String password, LocalDateTime pwdModifiedDate, short loginFailCnt,
-                  short status, short role) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
-        this.password = password;
-        this.pwdModifiedDate = pwdModifiedDate;
-        this.loginFailCnt = loginFailCnt;
-        this.status = status;
-        this.role = role;
-    }
+//    @Builder
+//    public Member(String id, String name, String email, String phone,
+//                  String password, LocalDateTime pwdModifiedDate, short loginFailCnt,
+//                  short status, short role) {
+//        this.id = id;
+//        this.name = name;
+//        this.email = email;
+//        this.phone = phone;
+//        this.password = password;
+//        this.pwdModifiedDate = pwdModifiedDate;
+//        this.loginFailCnt = loginFailCnt;
+//        this.status = status;
+//        this.role = role;
+//    }
 
 }
