@@ -23,9 +23,18 @@ public class MemberAddress {
 
     private String name;
 
-    private String address;
-
     private String receiveName;
 
     private String receivePhone;
+
+    private int zipcode;            // 우편번호
+
+    private String address;         // 주소. 번지수까지 주소
+
+    private String address_detail;  // 상세주소. 호수, 
+
+    private String address_extra;   // 참고항목 (ex. 동/리/건물명). 도로명주소의 경우 적용됨
+
+    
+
 }

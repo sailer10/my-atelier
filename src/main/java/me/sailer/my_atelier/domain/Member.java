@@ -6,7 +6,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import me.sailer.my_atelier.base.BaseCreatedTime;
+import me.sailer.my_atelier.domain.base.BaseCreatedTime;
+import me.sailer.my_atelier.enums.MemberRole;
 
 import java.time.LocalDateTime;
 
@@ -37,7 +38,9 @@ public class Member extends BaseCreatedTime {
 
     private short status;
 
-    private short role;
+    private MemberRole role;
+
+    private int mileage;
 
 //    @Builder
 //    public Member(String id, String name, String email, String phone,

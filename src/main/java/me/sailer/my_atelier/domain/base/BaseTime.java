@@ -1,4 +1,4 @@
-package me.sailer.my_atelier.base;
+package me.sailer.my_atelier.domain.base;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;

@@ -1,19 +1,20 @@
+#logging:  # JPA 쿼리 바인딩 파라미터 표시
+#  level:
+#    org.hibernate.orm.jdbc.bind: trace
 spring:
   application:
     name: my-atelier
   output:
     ansi:
       enabled: always # console colorize
-  jpa:
-    #    open-in-view: false
+  jpa:  #open-in-view: false
     hibernate:
       ddl-auto: update
-    # ?? ?? ??
+    show-sql: true  # JPA 쿼리 바인딩 로그 표시
     properties:
       hibernate:
         format_sql: true
-        show-sql: true
-    defer-datasource-initialization: true # ??? ?? ?? data.sql ??
+    defer-datasource-initialization: true # 첫 시작시 data.sql 실행
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:testdb   #jdbc:h2:~./testdb  # localhost:8084/h2-console ???? JDBC URL
@@ -23,7 +24,6 @@ spring:
     console:
       enabled: true # H2 console 활성화
       path: /h2-console #h2-console path
-
   devtools:
     livereload:
       enabled: true

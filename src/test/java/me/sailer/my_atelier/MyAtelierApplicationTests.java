@@ -1,9 +1,8 @@
 package me.sailer.my_atelier;
 
 import me.sailer.my_atelier.domain.Category;
-import me.sailer.my_atelier.domain.Member;
 import me.sailer.my_atelier.repository.CategoryRepository;
-import me.sailer.my_atelier.statics.Statics;
+import me.sailer.my_atelier.statics.StaticUrls;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,18 +10,11 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MockMvcBuilder;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-import java.util.List;
-
-
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
  * 범용 테스트 작성 클래스
@@ -73,14 +65,14 @@ class MyAtelierApplicationTests {
 	}
 
 	@Test
-	@DisplayName("카테고리 이름 검색 테스트")
+	@DisplayName("카테고리 이름 저장후 검색 테스트")
 	public void getAllCategories() throws Exception {
 		// given
-		Category c1 = categoryRepository.save(new Category((byte)1, "목공"));
+		Category c1 = categoryRepository.save((Category.builder().categoryNo((byte) 1).name("목공").build() ));
 		// when
 		Category c2 = categoryRepository.findById((byte)1).orElseThrow();
 		// then
-//		Assertions.assertThat(c2.getCategoryName()).isEqualTo(c1.getCategoryName());
+		Assertions.assertThat(c1.getName()).isEqualTo(c2.getName());
 	}
 
 
@@ -91,7 +83,7 @@ class MyAtelierApplicationTests {
 	@Test
 	public void getAllMembers() throws Exception {
 		// given
-		String url = Statics.API_PRODUCTS;
+		String url = StaticUrls.API_PRODUCTS;
 
 		// when
 		final ResultActions result = mockMvc.perform(MockMvcRequestBuilders.get(url).

@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import me.sailer.my_atelier.base.BaseCreatedTime;
+import me.sailer.my_atelier.domain.base.BaseCreatedTime;
 
 /**
  * 문의글 엔티티

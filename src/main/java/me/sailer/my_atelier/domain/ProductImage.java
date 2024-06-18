@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-import me.sailer.my_atelier.base.BaseTime;
+import me.sailer.my_atelier.domain.base.BaseTime;
 
 @Entity
 @Getter

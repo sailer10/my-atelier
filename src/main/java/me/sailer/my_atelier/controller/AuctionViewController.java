@@ -1,30 +1,28 @@
 package me.sailer.my_atelier.controller;
 
 import lombok.RequiredArgsConstructor;
-import me.sailer.my_atelier.service.AuctionService;
-import me.sailer.my_atelier.statics.Statics;
+import me.sailer.my_atelier.statics.StaticUrls;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequiredArgsConstructor
 public class AuctionViewController {
 
 
-    @GetMapping(Statics.PRODUCTS)
+    @GetMapping(StaticUrls.PRODUCTS)
     public String getProducts(Model model) {
 
-        return Statics.AUCTION + Statics.PRODUCTS;
+        return StaticUrls.AUCTION + StaticUrls.PRODUCTS;
     }
 
-    @GetMapping(Statics.PRODUCTS + "/{id}")
+    @GetMapping(StaticUrls.PRODUCTS + "/{id}")
     public String getProductDetail(@PathVariable("id") long id, Model model) {
         // todo: service 에서 id 에 해당하는 상품 찾은 후 model.addAttribute("product", 찾은객체);
 
-        return Statics.AUCTION + Statics.PRODUCT_DETAIL;
+        return StaticUrls.AUCTION + StaticUrls.PRODUCT_DETAIL;
     }
 
 }

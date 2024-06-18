@@ -3,9 +3,9 @@ package me.sailer.my_atelier.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import me.sailer.my_atelier.base.BaseTime;
+import me.sailer.my_atelier.domain.base.BaseTime;
+import me.sailer.my_atelier.enums.ProductStatus;
 
-import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,7 +21,6 @@ public class Product extends BaseTime {
     @Column(name = "no", updatable = false)
     private Long productNo;
 
-    // todo: 이 컬럼 지울것. 양방향 참조 다 없앨거임...
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     @Column(name = "tags")
     private final Set<ProductTagMapping> productTagMappings = new HashSet<>();
@@ -52,7 +51,7 @@ public class Product extends BaseTime {
 
     private String description;
 
-    private byte status;
+    private ProductStatus status;
 
 //    @Builder
 //    public Product(String name, int price, int remaining,
