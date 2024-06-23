@@ -12,9 +12,10 @@ import lombok.*;
 
 @Entity
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(name = "PRODUCT_TAG_MAPPING")
 public class ProductTagMapping {
 
     @Id
@@ -28,4 +29,5 @@ public class ProductTagMapping {
     @ManyToOne
     @JoinColumn(name="product_tag_no", updatable = false, foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private ProductTag productTag;
+
 }

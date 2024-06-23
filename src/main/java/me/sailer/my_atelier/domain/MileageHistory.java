@@ -12,6 +12,7 @@ import me.sailer.my_atelier.domain.base.BaseCreatedTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
+@Table(name = "MILEAGE_HISTORY")
 public class MileageHistory extends BaseCreatedTime {
 
     @Id

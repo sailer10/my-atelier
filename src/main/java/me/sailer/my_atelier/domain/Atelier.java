@@ -10,21 +10,22 @@ import me.sailer.my_atelier.domain.base.BaseCreatedTime;
 import me.sailer.my_atelier.enums.AtelierStatus;
 import me.sailer.my_atelier.enums.converter.AtelierStatusConverter;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
+@Table(name = "atelier")
 public class Atelier extends BaseCreatedTime {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long atelierNo;
+    private Long atelier_no;
 
-    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
     private String address;
 
     // DB 에는 byte(TINYINT)값을 저장하고 프로그램에선 enum을 사용하기 위해 Converter 사용함.

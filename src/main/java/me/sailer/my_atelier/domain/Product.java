@@ -6,6 +6,7 @@ import lombok.experimental.SuperBuilder;
 import me.sailer.my_atelier.domain.base.BaseTime;
 import me.sailer.my_atelier.enums.ProductStatus;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,6 +15,7 @@ import java.util.Set;
 @SuperBuilder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@Table(name = "PRODUCT")
 public class Product extends BaseTime {
 
     @Id
@@ -43,36 +45,40 @@ public class Product extends BaseTime {
     @Column(nullable = false)
     private int remaining;  // 재고
 
-    @Column(name = "is_discounted", nullable = true)
-    private final boolean isDiscounted = false; // deafult 값 설정
+    @Column(name = "is_discount")
+    private boolean isDiscount = false; // deafult 값 설정
 
-    @Column(nullable = true)
+    @Column(name = "discount_price")
     private int discountPrice;
 
     private String description;
 
-    private ProductStatus status;
+    @Builder.Default
+    private ProductStatus status = ProductStatus.EXPOSED;
 
-//    @Builder
-//    public Product(String name, int price, int remaining,
-//                   boolean isDiscounted, int discountedPrice, Category category) {
-//        this.name = name;
-//        this.price = price;
-//        this.remaining = remaining;
-//        this.isDiscounted = isDiscounted;
-//        this.discountedPrice = discountedPrice;
-//        this.category = category;
-//    }
-//
-//    public void update(String name, int price, int remaining, boolean isDiscounted,
-//                       int discountPrice, Category category) {
-//        this.name = name;
-//        this.price = price;
-//        this.remaining = remaining;
-//        this.isDiscounted = isDiscounted;
-//        this.discountPrice = discountPrice;
-//        this.categoryNo = category;
-//        // 생성 및 수정시각이 처음 상품 등록시에는 자동으로 적용 되지만, 수정시간은 직접 설정해야함
-//        this.setModifiedDateTime(LocalDateTime.now());
-//    }
+    @Builder
+    public Product(String name, int price, int remaining,
+                   boolean isDiscount, int discountPrice, String description,
+                   Category category, Atelier atelier) {
+        this.name = name;
+        this.price = price;
+        this.remaining = remaining;
+        this.isDiscount = isDiscount;
+        this.discountPrice = discountPrice;
+        this.description = description;
+        this.category = category;
+        this.atelier = atelier;
+    }
+
+    public void update(String name, int price, int remaining, boolean isDiscount,
+                       int discountPrice, Category category) {
+        this.name = name;
+        this.price = price;
+        this.remaining = remaining;
+        this.isDiscount = isDiscount;
+        this.discountPrice = discountPrice;
+        this.category = category;
+        // 생성 및 수정시각이 처음 상품 등록시에는 자동으로 적용 되지만, 수정시간은 직접 설정해야함
+        this.setModifiedDateTime(LocalDateTime.now());
+    }
 }

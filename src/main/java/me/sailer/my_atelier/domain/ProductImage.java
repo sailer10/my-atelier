@@ -12,6 +12,7 @@ import me.sailer.my_atelier.domain.base.BaseTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
+@Table(name = "PRODUCT_IMAGE")
 public class ProductImage extends BaseTime {
 
     @Id

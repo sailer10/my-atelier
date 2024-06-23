@@ -5,10 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import me.sailer.my_atelier.enums.AtelierStatus;
 
+/**
+ * delete 전용
+ */
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateAtelierStatusRequest {
 
-    private int status;
+    private byte status;
 }

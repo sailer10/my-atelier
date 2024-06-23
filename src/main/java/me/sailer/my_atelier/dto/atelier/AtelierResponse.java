@@ -10,17 +10,17 @@ import java.time.LocalDateTime;
 
 @Getter
 public class AtelierResponse {
-    private Long atelierNo;
+    private Long atelier_no;
     private String name;
     private String address;
     private AtelierStatus status;
-    private LocalDateTime createdAt;
+    private LocalDateTime created_at;
 
     public AtelierResponse(Atelier atelier) {
-        this.atelierNo = atelier.getAtelierNo();
+        this.atelier_no = atelier.getAtelier_no();
         this.name = atelier.getName();
         this.address = atelier.getAddress();
         this.status = atelier.getStatus();
-        this.createdAt = atelier.getCreatedAt();
+        this.created_at = atelier.getCreated_at();
     }
 }

@@ -23,8 +23,12 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+//	implementation 'mysql:mysql-connector-java:8.0.33' Spring Boot 2.7.8 이후로는 mysql-connector-java 가 아닌 mysql-connector-j 의존성을 추가해주면 된다고 함
+
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.slf4j:slf4j-api:2.0.13'
 
 	// thymeleaf
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
@@ -36,11 +40,10 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	// MySQL 의존성 (실 개발시 적용)
-//	runtimeOnly 'com.mysql:mysql-connector-j'
 
-	// H2 의존성 (테스트할때 쓰다가 나중에 바꿀것)
-	runtimeOnly 'com.h2database:h2'
+	// Database
+//	runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'com.mysql:mysql-connector-j'
 
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'

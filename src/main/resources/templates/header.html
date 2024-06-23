@@ -1,0 +1,66 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<nav th:fragment="header" class="navbar fixed-top navbar-expand-xl py-3" style="background-color: #e3f2fd;">
+	<div class="container">
+		<a class="navbar-brand" href="#">
+			My Atelier
+		</a>
+
+		<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+		        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="offcanvas offcanvas-end d-flex" tabindex="-100" id="offcanvasNavbar"
+		     aria-labelledby="offcanvasNavbarLabel">
+			<div class="offcanvas-header">
+				<h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body">
+				<ul class="navbar-nav justify-content-start flex-grow-1 pe-5">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/products.html">Products</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Near Atelier</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">[개발중...]</a>
+					</li>
+
+					<!-- 로그인 되어있는 경우에만 my page 화면에 표시 -->
+					<!-- 판매자, 구매자 role 별로 다른 구성 -->
+					<li class="nav-item">
+						<a class="nav-link" href="#">로그인</a>
+					</li>
+
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+						   aria-expanded="false">
+							My page
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">주문목록</a></li>
+							<li><a class="dropdown-item" href="#">취소/반품/교환</a></li>
+							<li>
+								<hr class="dropdown-divider">
+							</li>
+							<li><a class="dropdown-item" href="#">찜 목록</a></li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">로그아웃</a>
+					</li>
+				</ul>
+				<!-- <form class="d-flex" role="search">
+						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+						<button class="btn btn-outline-success" type="submit">Search</button>
+				</form> -->
+			</div>
+		</div>
+	</div>
+</nav>
+</html>

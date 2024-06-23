@@ -15,6 +15,7 @@ import me.sailer.my_atelier.domain.base.BaseCreatedTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(name = "INQUIRY")
 public class Inquiry extends BaseCreatedTime {
 
     @Id
@@ -29,8 +30,10 @@ public class Inquiry extends BaseCreatedTime {
     @JoinColumn(name = "product_no", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private Product product;
 
+    @Column(nullable = false)
     private String title;
 
+    @Column(nullable = false)
     private String content;
 
 

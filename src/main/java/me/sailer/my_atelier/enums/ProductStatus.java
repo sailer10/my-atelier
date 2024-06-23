@@ -9,21 +9,21 @@ import java.util.Arrays;
  */
 @Getter
 public enum ProductStatus {
-    SOLD_OUT("매진", 0),
-    EXPOSED("노출", 1),
-    BLOCKED("가림", 2),
-    BANNED("정책위반", 3);
+    SOLD_OUT("매진", (byte) 0),
+    EXPOSED("노출", (byte) 1),
+    BLOCKED("가림", (byte) 2),
+    BANNED("정책위반", (byte) 3);
 
     final private String desc;
-    final private int code;
+    final private byte code;
 
-    ProductStatus(String desc, int code) {
+    ProductStatus(String desc, byte code) {
         this.desc = desc;
         this.code = code;
     }
 
-    public static MemberRole ofCode(int code) {
-        return Arrays.stream(MemberRole.values())
+    public static ProductStatus ofCode(byte code) {
+        return Arrays.stream(ProductStatus.values())
                 .filter(v -> v.getCode() == code)
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 상품코드입니다."));

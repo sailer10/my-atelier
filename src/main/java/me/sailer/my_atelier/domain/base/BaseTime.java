@@ -28,13 +28,13 @@ public abstract class BaseTime {
 
     @CreatedDate
     @Column(updatable = false, nullable = false)
-    protected LocalDateTime createdAt;
+    protected LocalDateTime created_at;
 
     @LastModifiedDate
     @Column(nullable = false)
-    protected LocalDateTime modifiedAt;
+    protected LocalDateTime modified_at;
 
-    public void setModifiedDateTime(LocalDateTime modifiedAt) {
-        this.modifiedAt = modifiedAt;
+    public void setModifiedDateTime(LocalDateTime modified_at) {
+        this.modified_at = modified_at;
     }
 }

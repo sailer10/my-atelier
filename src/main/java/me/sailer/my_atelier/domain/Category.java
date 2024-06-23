@@ -12,11 +12,12 @@ import java.util.Set;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
+@Table(name = "CATEGORY")
 public class Category {
 
     @Id
     @Column(updatable = false)
-    private Byte categoryNo;
+    private Byte category_no;
 
     @Column(nullable = false, updatable = false)
     private String name;

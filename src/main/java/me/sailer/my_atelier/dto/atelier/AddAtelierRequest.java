@@ -13,7 +13,7 @@ public class AddAtelierRequest {
 
     private String name;
     private String address;
-    private int status;
+    private byte status;
 
     public Atelier toEntity() {
         return Atelier.builder()

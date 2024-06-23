@@ -8,22 +8,26 @@ spring:
     ansi:
       enabled: always # console colorize
   jpa:  #open-in-view: false
+    database: mysql
     hibernate:
-      ddl-auto: update
+      naming:
+        physical-strategy: me.sailer.my_atelier.config.UpperCaseNamingStrategy
     show-sql: true  # JPA 쿼리 바인딩 로그 표시
     properties:
       hibernate:
+        ddl-auto: validate
         format_sql: true
-    defer-datasource-initialization: true # 첫 시작시 data.sql 실행
+#        dialect: org.hibernate.dialect.MySQL8InnoDBDialect
+#    defer-datasource-initialization: true # 첫 시작시 data.sql 실행
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:testdb   #jdbc:h2:~./testdb  # localhost:8084/h2-console ???? JDBC URL
-    username: sa
-    password:
-  h2:
-    console:
-      enabled: true # H2 console 활성화
-      path: /h2-console #h2-console path
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mam675.synology.me:3307/SEIL_WEB   #jdbc:h2:~./testdb  # localhost:8084/h2-console ???? JDBC URL
+    username: seil
+    password: 6-2AIoTdK2ATLydk
+#  h2:
+#    console:
+#      enabled: true # H2 console 활성화
+#      path: /h2-console #h2-console path
   devtools:
     livereload:
       enabled: true
@@ -33,3 +37,6 @@ spring:
     cache: false # 정적요소 실시간 반영 위한 캐시 제거
 server:
   port: 9094
+logging:
+  level:
+    root: INFO

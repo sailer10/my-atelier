@@ -1,4 +1,4 @@
-<html layout:decorate="~{auction/auction_layout}">
+<html layout:decorate="~{layout}" xmlns:layout="http://www.w3.org/1999/xhtml">
 <div layout:fragment="content" class="container-fluid">
 	<div class="container">
 		<div class="mb-3">
@@ -20,6 +20,33 @@
 						<span class="badge bg-secondary">단일수량</span>
 					</div>
 				</div>
+			</div>
+		</div>
+		<div>
+			<h2>제품설명</h2>
+			<div>
+				<p>{제품설명}</p>
+			</div>
+		</div>
+		<hr>
+		<div>
+			<h2>리뷰</h2>
+			<div>
+				{리뷰 목록}
+			</div>
+		</div>
+		<hr>
+		<div>
+			<h2>Q&A</h2>
+			<div>
+				{문의글 목록}
+			</div>
+		</div>
+		<hr>
+		<div>
+			<h2>배송/교환/환불 안내</h2>
+			<div>
+				{관련 내용}
 			</div>
 		</div>
 	</div>

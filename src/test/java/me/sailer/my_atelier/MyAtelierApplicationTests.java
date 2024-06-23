@@ -2,7 +2,7 @@ package me.sailer.my_atelier;
 
 import me.sailer.my_atelier.domain.Category;
 import me.sailer.my_atelier.repository.CategoryRepository;
-import me.sailer.my_atelier.statics.StaticUrls;
+import me.sailer.my_atelier.util.STS;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,7 +83,7 @@ class MyAtelierApplicationTests {
 	@Test
 	public void getAllMembers() throws Exception {
 		// given
-		String url = StaticUrls.API_PRODUCTS;
+		String url = STS.API_PRODUCTS;
 
 		// when
 		final ResultActions result = mockMvc.perform(MockMvcRequestBuilders.get(url).

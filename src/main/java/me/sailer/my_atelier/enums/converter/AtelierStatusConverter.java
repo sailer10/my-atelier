@@ -15,10 +15,10 @@ public class AtelierStatusConverter implements AttributeConverter<AtelierStatus,
     }
 
     @Override
-    public AtelierStatus convertToEntityAttribute(Byte dbData) {
-        if (dbData == null)
+    public AtelierStatus convertToEntityAttribute(Byte code) {
+        if (code == null)
             return null;
-        return AtelierStatus.ofCode(dbData);
+        return AtelierStatus.ofCode(code);
 
     }
 }

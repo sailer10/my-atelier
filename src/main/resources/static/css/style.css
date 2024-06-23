@@ -1,0 +1,56 @@
+p {
+  white-space: pre-wrap;
+}
+
+.nav-login {
+  margin-top: auto;
+}
+
+.navbar-brand {
+  height: 2.5em;
+}
+
+.my-c-size {
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 400px;
+}
+
+.category > ul > a {
+  /* float: left;   */
+  /* 카테고리 수평으로 정렬하는 옵션인데 이러면 아래 추천공방 리스트도 수평으로 정렬되서 꺼놓음 */
+  width: 100px;
+  text-align: center;
+  white-space: nowrap;
+  border: 0;
+}
+
+.category > ul > a > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.carousel-inner > .carousel-item > img {
+  top: 0;
+  left: 0;
+  min-width: 30rem;
+  min-height: 35rem;
+  max-height: 35rem;
+  filter: brightness(0.7);
+}
+
+.home-recommeded-products > div > a {
+  text-decoration: none;
+  color: black;
+}
+
+#home-recommeded-products > div > img {
+  width: auto;
+  max-height: 50%;
+}
+
+#home-recommeded-class > div > img {
+  max-width: 50%;
+}

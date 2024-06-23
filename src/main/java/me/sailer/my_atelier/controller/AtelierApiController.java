@@ -7,14 +7,14 @@ import me.sailer.my_atelier.dto.atelier.AtelierResponse;
 import me.sailer.my_atelier.dto.atelier.UpdateAtelierRequest;
 import me.sailer.my_atelier.dto.atelier.UpdateAtelierStatusRequest;
 import me.sailer.my_atelier.service.AtelierService;
-import me.sailer.my_atelier.statics.StaticUrls;
+import me.sailer.my_atelier.util.STS;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(StaticUrls.API_ATELIER)
+@RequestMapping(STS.API_ATELIER)
 public class AtelierApiController {
 
     private final AtelierService atelierService;
@@ -57,7 +57,7 @@ public class AtelierApiController {
         return ResponseEntity.ok().build();
     }
 
-    @PatchMapping(StaticUrls.STATUS + "/{id}")
+    @PatchMapping(STS.STATUS + "/{id}")
     public ResponseEntity<Void> updateAtelierStatus(@PathVariable Long id,
                                                 @RequestBody UpdateAtelierStatusRequest request) {
         atelierService.updateAtelierStatus(id, request);

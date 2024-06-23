@@ -11,11 +11,16 @@ import java.util.Set;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
+@Table(name = "PRODUCT_TAG")
 public class ProductTag {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false)
-    private Short tagNo;
+    private Integer tagNo;
     private String name;
+
+    @OneToMany(mappedBy = "productTag")
+    @Column
+    private Set<ProductTagMapping> productTagMappings = new HashSet<>();
 }

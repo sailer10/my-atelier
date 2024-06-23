@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(name = "LECTURE") //todo: @Table 어노테이션에 테이블명 써준거 다 지워야됨. 매핑규칙은 어짜피 따로 정한다
 public class Lecture {
 
     @Id

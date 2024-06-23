@@ -23,6 +23,6 @@ public abstract class BaseCreatedTime {
 
     @CreatedDate
     @Column(updatable = false, nullable = false)
-    protected LocalDateTime createdAt;
+    protected LocalDateTime created_at;
 
 }

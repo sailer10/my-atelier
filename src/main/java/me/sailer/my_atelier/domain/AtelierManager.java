@@ -11,11 +11,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(name = "ATELIER_MANAGER")
 public class AtelierManager {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long managerNo;
+    private Long manager_no;
 
     @OneToOne
     @JoinColumn(name = "member_no", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
