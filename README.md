@@ -13,5 +13,17 @@
 
 # 화면구성
 
+## 메인 화면
+
+## 상품 리스트
+|![image](https://github.com/sailer10/my-atelier/assets/80940663/03738d9d-8482-4e1a-a237-dbe3a4dbc559) |![image](https://github.com/sailer10/my-atelier/assets/80940663/8c990ead-d62f-4468-8d93-c200d2d79c1a)
+|:---:|:---:|
+|모바일|PC|
+
+
+## 상품 상세
+
+
+
 # 테이블 구조
 https://www.erdcloud.com/d/zPe9PZop9oMEJTg8R
