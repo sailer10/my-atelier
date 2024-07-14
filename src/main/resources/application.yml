@@ -21,7 +21,10 @@ spring:
 #    defer-datasource-initialization: true # 첫 시작시 data.sql 실행
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mam675.synology.me:3307/SEIL_WEB   #jdbc:h2:~./testdb  # localhost:8084/h2-console ???? JDBC URL
+    url: jdbc:mysql://mam675.synology.me:3307/SEIL_WEB?zeroDateTimeBehavior=convertToNull
+    # mysql 에서 date 값을 넣다가 문제가 발생하면 0000-00 이런식으로 저장하게 되는데, 이를 java.util.Date 로 가져오면서
+    # 문제가 발생한다. 이를 해결하기 위해 ?zeroDateTimeBehavior=convertToNull 와 같은 옵션을 datasource.url 뒤에 붙인다.
+    #jdbc:h2:~./testdb  # localhost:8084/h2-console ???? JDBC URL
     username: seil
     password: 6-2AIoTdK2ATLydk
 #  h2:

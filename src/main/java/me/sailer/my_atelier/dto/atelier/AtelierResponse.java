@@ -17,7 +17,7 @@ public class AtelierResponse {
     private LocalDateTime created_at;
 
     public AtelierResponse(Atelier atelier) {
-        this.atelier_no = atelier.getAtelier_no();
+        this.atelier_no = atelier.getAtelierNo();
         this.name = atelier.getName();
         this.address = atelier.getAddress();
         this.status = atelier.getStatus();

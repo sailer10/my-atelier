@@ -16,15 +16,19 @@ public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "cart_no")
+    private Long cartNo;
 
     @ManyToOne
-    @JoinColumn(name = "member_no", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
+    @JoinColumn(name = "member_no", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT),
+            nullable = false)
     private Member member;
 
     @ManyToOne
-    @JoinColumn(name = "product_no", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
+    @JoinColumn(name = "product_no", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT),
+            nullable = false)
     private Product product;
 
+    @Column(nullable = false)
     private int quantity;
 }

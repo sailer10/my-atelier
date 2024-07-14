@@ -16,11 +16,12 @@ public class ProductTag {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(updatable = false)
+    @Column(updatable = false, name = "tag_no")
     private Integer tagNo;
+
     private String name;
 
+    @Builder.Default
     @OneToMany(mappedBy = "productTag")
-    @Column
-    private Set<ProductTagMapping> productTagMappings = new HashSet<>();
+    private Set<ProductTagMapping> product_tag_mappings = new HashSet<>();
 }

@@ -16,13 +16,14 @@ public class WishList {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "wishlist_no")
     private Long wishListNo;
 
     @ManyToOne
     @JoinColumn(name = "member_no", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
-    private Member memberNo;
+    private Member member;
 
     @ManyToOne
     @JoinColumn(name = "product_no", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
-    private Product productNo;
+    private Product product;
 }

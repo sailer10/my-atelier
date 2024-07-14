@@ -20,10 +20,11 @@ public class File extends BaseCreatedTime {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long file_no;
+    @Column(name = "file_no")
+    private Long fileNo;
 
-    @Column(nullable = false)
-    private String file_url;
+    @Column(nullable = false, name = "file_src")
+    private String fileSrc;
 
     @Builder.Default
     @Column(nullable = false)

@@ -4,7 +4,10 @@ import org.hibernate.boot.model.naming.Identifier;
 import org.hibernate.boot.model.naming.PhysicalNamingStrategy;
 import org.hibernate.engine.jdbc.env.spi.JdbcEnvironment;
 
-public class UpperCaseNamingStrategy  implements PhysicalNamingStrategy {
+/**
+ * DB 와 JPA Entity 명명 규칙 상속받아 구현함.
+ */
+public class UpperCaseNamingStrategy implements PhysicalNamingStrategy {
     @Override
     public Identifier toPhysicalCatalogName(Identifier identifier, JdbcEnvironment jdbcEnvironment) {
         return apply(identifier);

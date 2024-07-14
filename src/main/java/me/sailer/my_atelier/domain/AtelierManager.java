@@ -16,7 +16,8 @@ public class AtelierManager {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long manager_no;
+    @Column(name = "manager_no")
+    private Long managerNo;
 
     @OneToOne
     @JoinColumn(name = "member_no", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))

@@ -20,6 +20,7 @@ public class Inquiry extends BaseCreatedTime {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "inquiry_no")
     private Long inquiryNo;
 
     @ManyToOne

@@ -17,12 +17,13 @@ public class MileageHistory extends BaseCreatedTime {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long mileageNo;
+    @Column(name = "mileage_no")
+    private Long mileageMo;
 
     @ManyToOne()
     @JoinColumn(name = "member_no", nullable = false)
     private Member member;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "mlg_amount")
     private int mlgAmount;
 }

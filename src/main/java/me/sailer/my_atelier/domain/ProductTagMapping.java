@@ -20,6 +20,7 @@ public class ProductTagMapping {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "tag_mapping_no")
     private Long tagMappingNo;
 
     @ManyToOne
@@ -27,7 +28,7 @@ public class ProductTagMapping {
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name="product_tag_no", updatable = false, foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
+    @JoinColumn(name="tag_no", updatable = false, foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private ProductTag productTag;
 
 }

@@ -1,5 +1,6 @@
 package me.sailer.my_atelier.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -20,11 +21,10 @@ public class Product extends BaseTime {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "no", updatable = false)
+    @Column(name = "product_no", updatable = false)
     private Long productNo;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
-    @Column(name = "tags")
     private final Set<ProductTagMapping> productTagMappings = new HashSet<>();
 
     @ManyToOne  // FetchType.EAGER 로 default 설정 되어있음.
@@ -45,7 +45,9 @@ public class Product extends BaseTime {
     @Column(nullable = false)
     private int remaining;  // 재고
 
+    @Builder.Default
     @Column(name = "is_discount")
+    @JsonProperty("isDiscount")
     private boolean isDiscount = false; // deafult 값 설정
 
     @Column(name = "discount_price")

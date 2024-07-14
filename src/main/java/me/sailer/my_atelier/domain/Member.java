@@ -18,6 +18,7 @@ public class Member extends BaseCreatedTime {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "member_no")
     private Long memberNo;
 
     @Column(nullable = false)
@@ -35,16 +36,17 @@ public class Member extends BaseCreatedTime {
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false)
-    private LocalDateTime pwdModifiedDate;
+    @Column(nullable = false, name = "pwd_modified_date")
+    private LocalDateTime pweModifiedDate;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "login_fail_cnt")
     private short loginFailCnt;
 
     // todo: enum,converter MemberStatus 선언할것
     @Column(nullable = false)
     private byte status;
 
+    @Builder.Default
     @Column(nullable = false)
     private MemberRole role = MemberRole.NORMAL;
 

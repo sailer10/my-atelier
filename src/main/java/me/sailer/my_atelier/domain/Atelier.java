@@ -22,7 +22,8 @@ public class Atelier extends BaseCreatedTime {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long atelier_no;
+    @Column(name = "atelier_no")
+    private Long atelierNo;
 
     private String name;
 

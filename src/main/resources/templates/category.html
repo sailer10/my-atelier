@@ -1,31 +1,27 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <div th:fragment="category" id="category" class="category row">
 	<ul class="list-group list-group-horizontal justify-content-around">
-		<a href="#" class="list-group-item list-group-item-action">
+		<a th:href="@{/products(cn=1)}" class="list-group-item list-group-item-action">
 			<img src="./image/가죽공예.png" />
 			가죽공예
 		</a>
-		<a href="#" class="list-group-item list-group-item-action">
+		<a th:href="@{/products(cn=2)}" class="list-group-item list-group-item-action">
 			<img src="./image/목공.png" />
 			목공
 		</a>
-		<a href="#" class="list-group-item list-group-item-action">
+		<a th:href="@{/products(cn=3)}" class="list-group-item list-group-item-action">
 			<img src="./image/베이킹.png" />
 			베이킹
 		</a>
-		<a href="#" class="list-group-item list-group-item-action">
+		<a th:href="@{/products(cn=4)}" class="list-group-item list-group-item-action">
 			<img src="./image/도자기.png" />
 			도자기
 		</a>
-		<a href="#" class="list-group-item list-group-item-action">
-			<img src="./image/향초.png" />
-			향초
-		</a>
-		<a href="#" class="list-group-item list-group-item-action">
+		<a th:href="@{/products(cn=5)}" class="list-group-item list-group-item-action">
 			<img src="./image/향수.png" />
 			향수
 		</a>
-		<a href="#" class="list-group-item list-group-item-action">
+		<a th:href="@{/products(cn=0)}" class="list-group-item list-group-item-action">
 			<img src="./image/기타.png" />
 			기타
 		</a>

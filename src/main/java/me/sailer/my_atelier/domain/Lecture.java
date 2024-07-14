@@ -19,5 +19,6 @@ public class Lecture {
     @JoinColumn(name = "product_no", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private Product product;
 
-    private String videoUrl;
+    @Column(name = "url")
+    private String url;
 }

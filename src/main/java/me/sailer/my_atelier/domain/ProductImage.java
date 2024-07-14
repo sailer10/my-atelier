@@ -17,9 +17,10 @@ public class ProductImage extends BaseTime {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long productImageNo;
+    @Column(name = "image_no")
+    private Long imageNo;
 
-    @Column(name = "image_url")
+    @Column(name = "image_src")
     private String imageSrc;    // 클라우드 스토리지 경로
 
 

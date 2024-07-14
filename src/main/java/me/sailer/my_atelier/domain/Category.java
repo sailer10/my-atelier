@@ -16,8 +16,8 @@ import java.util.Set;
 public class Category {
 
     @Id
-    @Column(updatable = false)
-    private Byte category_no;
+    @Column(updatable = false, name = "category_no")
+    private Byte categoryNo;
 
     @Column(nullable = false, updatable = false)
     private String name;

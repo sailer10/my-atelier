@@ -6,92 +6,43 @@
 
 		<!-- todo: Category 뭐 선택되었는지 보여줘야 함 -->
 		<h3>카테고리</h3>
-		<div th:insert="category :: category"></div>
+		<div th:insert="~{category :: category}"></div>
 		<br />
 
 		<h4>상품</h4>
-		<div class="row g-4 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
-
-			<div class="col mb-3">
-				<a href="#" class="link-dark link-underline-opacity-0">
-					<img class="img-fluid" src="./image/dog1.jpg" />
+		<div class="row g-4 row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+			<div class="col mb-3" th:if="${#lists.isEmpty(products)}">
+				상품이 없습니다!
+			</div>
+			<div class="col mb-3" th:each="item: ${products}">
+				<a th:href="@{/products/{id}(id = ${item.productNo})}" href="#" class="link-dark link-underline-opacity-0">
+					<span th:if="${item.mainImageSrc} != null">
+						<img class="img-fluid"  th:src="@{${item.mainImageSrc}}" alt="이미지 없음"  />
+					</span>
+					<span th:if="${item.mainImageSrc} == null">
+						<img class="img-fluid" src="/image/noImage.png">
+					</span>
 					<div>
 						<div class="atelier-name">
-							<em>{$atelier_name}</em>
+							<em th:text="${item.atelierName}"></em>
 						</div>
 						<div class="product-name fs-5">
-							{$product_name}
+							<span th:text="${item.productName}"></span>
 						</div>
 						<div class="product-price-group">
-							<del>{$price}</del>
-							<span class="product-price fw-bold">{$discounted_price}</span>
+							<span th:if="${!item.isDiscount}">
+								<strong th:text="${item.price}"></strong>
+							</span>
+							<span th:if="${item.isDiscount}">
+								<del th:text="${item.price}"></del>
+								<strong class="discount-price" th:text="${item.discountPrice}"></strong>
+							</span>
 						</div>
-						<div class="product-badges">
-							<span class="badge bg-info">기간할인</span>
-							<span class="badge bg-secondary">단일수량</span>
+						<div th:if="${item.tags != null}" class="product-badges">
+							<span th:each="badges: ${item.tags}">
+								<span class="badge bg-primary" th:text="${badges}"></span>
+							</span>
 						</div>
-					</div>
-				</a>
-			</div>
-			<div class="col mb-3">
-				<a href="#" class="link-dark link-underline-opacity-0">
-					<img class="img-fluid" src="./image/dog1.jpg" />
-					<div>
-						<div class="atelier-name">
-							<em>atelier</em>
-						</div>
-						<div class="product-name fs-5">
-							골댕이
-						</div>
-						<div class="product-price-gruop">
-							<del></del>
-							<span class="real-price fw-bold">25,000</span>
-						</div>
-						<div class="product-badges">
-							<span class="badge bg-primary invisible">공간차지뱃지</span>
-						</div>
-					</div>
-				</a>
-			</div>
-			<div class="col mb-3">
-				<a href="#" class="link-dark link-underline-opacity-0">
-					<img class="img-fluid" src="./image/dog1.jpg" />
-					<div>
-						<div class="atelier-name">
-							<em>atelier</em>
-						</div>
-						<div class="product-name fs-5">
-							골댕이
-						</div>
-						<div class="product-price-gruop">
-							<del></del>
-							<span class="real-price fw-bold">25,000</span>
-						</div>
-						<div class="product-badges">
-							<span class="badge bg-primary invisible">공간차지뱃지</span>
-						</div>
-
-					</div>
-				</a>
-			</div>
-			<div class="col mb-3">
-				<a href="#" class="link-dark link-underline-opacity-0">
-					<img class="img-fluid" src="./image/dog1.jpg" />
-					<div>
-						<div class="atelier-name">
-							<em>atelier</em>
-						</div>
-						<div class="product-name fs-5">
-							골댕이
-						</div>
-						<div class="product-price-gruop">
-							<del></del>
-							<span class="real-price fw-bold">25,000</span>
-						</div>
-						<div class="product-badges">
-							<span class="badge bg-primary invisible">공간차지뱃지</span>
-						</div>
-
 					</div>
 				</a>
 			</div>
@@ -100,27 +51,27 @@
 
 		<h4>클래스</h4>
 		<div class="row g-4 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
-			<div class="col mb-3">
-				<a href="#" class="link-dark link-underline-opacity-0">
-					<img class="img-fluid" src="/image/dog1.jpg" />
-					<div>
-						<div class="atelier-name">
-							<em>atelier</em>
-						</div>
-						<div class="product-name fs-5">
-							골댕이
-						</div>
-						<div class="product-price-group">
-							<del>50,000</del>
-							<span class="product-price fw-bold">25,000</span>
-						</div>
-						<div class="product-badges">
-							<span class="badge bg-info">기간할인</span>
-							<span class="badge bg-secondary">단일수량</span>
-						</div>
-					</div>
-				</a>
-			</div>
+<!--			<div class="col mb-3">-->
+<!--				<a href="#" class="link-dark link-underline-opacity-0">-->
+<!--					<img class="img-fluid" src="/image/dog1.jpg" />-->
+<!--					<div>-->
+<!--						<div class="atelier-name">-->
+<!--							<em>atelier</em>-->
+<!--						</div>-->
+<!--						<div class="product-name fs-5">-->
+<!--							골댕이-->
+<!--						</div>-->
+<!--						<div class="product-price-group">-->
+<!--							<del>50,000</del>-->
+<!--							<span class="product-price fw-bold">25,000</span>-->
+<!--						</div>-->
+<!--						<div class="product-badges">-->
+<!--							<span class="badge bg-info">기간할인</span>-->
+<!--							<span class="badge bg-secondary">단일수량</span>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</a>-->
+<!--			</div>-->
 		</div>
 
 	</div>

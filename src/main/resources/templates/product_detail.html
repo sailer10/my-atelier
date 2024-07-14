@@ -1,34 +1,41 @@
-<html layout:decorate="~{layout}" xmlns:layout="http://www.w3.org/1999/xhtml">
+<html layout:decorate="~{layout}" xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
 <div layout:fragment="content" class="container-fluid">
 	<div class="container">
 		<div class="mb-3">
-			<div>
-				<img class="img-fluid" src="/image/dog1.jpg" />
+			<div class="product">
+				<img class="img-fluid" />
 				<div>
 					<div class="atelier-name">
-						<em>{$atelier_name}</em>
+						<em th:text="${product.atelierName}"></em>
 					</div>
 					<div class="product-name fs-5">
-						{$product_name}
+						<span th:text="${product.productName}"></span>
 					</div>
 					<div class="product-price-group">
-						<del>{$price}</del>
-						<span class="product-price fw-bold">{$dicounted_price}</span>
+						<span th:if="${product.isDiscount}">
+							<del th:text="${product.price}"></del>
+							<super th:text="${product.discountPrice}"></super>
+						</span>
+						<span th:if="${!product.isDiscount}">
+							<super th:text="${product.price}"></super>
+						</span>
 					</div>
-					<div class="product-badges">
-						<span class="badge bg-info">기간할인</span>
-						<span class="badge bg-secondary">단일수량</span>
-					</div>
+<!--					<div th:if="${product.tags != null}" class="product-badges">-->
+<!--							<span th:each="badges: ${product.tags}">-->
+<!--								<span class="badge bg-primary" th:text="${badges}"></span>-->
+<!--							</span>-->
+<!--					</div>-->
 				</div>
 			</div>
 		</div>
 		<div>
 			<h2>제품설명</h2>
 			<div>
-				<p>{제품설명}</p>
+				<p class="product-description" th:text="${product.description}"></p>
 			</div>
 		</div>
 		<hr>
+<!--		리뷰 -->
 		<div>
 			<h2>리뷰</h2>
 			<div>
@@ -36,6 +43,7 @@
 			</div>
 		</div>
 		<hr>
+<!--		문의글 -->
 		<div>
 			<h2>Q&A</h2>
 			<div>
@@ -43,6 +51,7 @@
 			</div>
 		</div>
 		<hr>
+<!--		배송 관련 -->
 		<div>
 			<h2>배송/교환/환불 안내</h2>
 			<div>

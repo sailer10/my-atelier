@@ -1,19 +1,19 @@
 package me.sailer.my_atelier.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import me.sailer.my_atelier.domain.*;
 import me.sailer.my_atelier.dto.product.AddProductRequest;
-import me.sailer.my_atelier.dto.product.ProductResponse;
+import me.sailer.my_atelier.dto.product.ProductDetailResponse;
+import me.sailer.my_atelier.dto.product.ProductListViewResponse;
 import me.sailer.my_atelier.repository.ProductRepository;
-import me.sailer.my_atelier.repository.ProductTagRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ProductService {
 
     private final ProductRepository productRepository;
@@ -28,13 +28,16 @@ public class ProductService {
     }
 
     public List<Product> findByCategory(Byte id) {
-        Category category = categoryService.findById(id);
-        return productRepository.findByCategory(category);
+        return productRepository.findByCategory(id);
     }
 
-    public ProductResponse findByid(Long id) {
+    public List<ProductListViewResponse> findProductListByCategory(Byte categoryNo) {
+        return productRepository.findProductListByCategory(categoryNo);
+    }
+
+    public ProductDetailResponse findByid(Long id) {
         Product product = productRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("찾는 상품이 없습니다"));
-        return new ProductResponse(product);
+        return new ProductDetailResponse(product);
     }
 
     public Product saveProduct(AddProductRequest request) {

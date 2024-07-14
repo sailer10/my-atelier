@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 public abstract class BaseCreatedTime {
 
     @CreatedDate
-    @Column(updatable = false, nullable = false)
+    @Column(updatable = false, nullable = false, name = "created_at")
     protected LocalDateTime created_at;
 
 }
