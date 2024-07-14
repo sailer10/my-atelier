@@ -22,8 +22,3 @@
 
 
 ## 상품 상세
-
-
-
-# 테이블 구조
-https://www.erdcloud.com/d/zPe9PZop9oMEJTg8R
